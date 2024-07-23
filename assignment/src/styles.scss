@@ -2,51 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-$small-font: 14px;
-$large-font: 16px;
+$times-new-roman: "Times New Roman", Times, serif;
+$arial: Arial, Helvetica, sans-serif;
+
+$h1-font-size: 24px;
+
+$large-font-size: 16px;
+$small-font-size: 14px;
+$smaller-font-size: 13px;
 
 $page-width: 900px;
 $page-height: 600px;
 
-$narrow-section-width: 300px;
 $wide-section-width: 550px;
+$narrow-section-width: 300px;
 $section-height: 400px;
 
+$white: #ffffff;
+$black: #000000;
+$light-gold: #cdad00;
+
 * {
-  font-family: "Times New Roman", Times, serif;
-  line-height: $large-font;
+  font-family: $times-new-roman;
+  line-height: $large-font-size;
 }
 
 h1 {
-  font-size: 24px;
+  font-size: $h1-font-size;
   letter-spacing: 1px;
-  color: #ffffff;
+  color: $white;
   margin: 10px 0px 20px 0px;
 }
 
 p {
-  font-size: $small-font;
+  font-size: $small-font-size;
   text-align: justify;
 }
 
 ul {
-  font-size: $large-font;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: $large-font-size;
+  font-family: $arial;
+  font-weight: 500;
+}
+
+li::marker {
+  font-size: 20px;
 }
 
 a {
-  font-size: $small-font;
-  color: #ffffff;
+  font-size: $small-font-size;
+  color: $white;
   text-align: center;
 }
 
-a:hover {
-    color: #000000;
-  }
-
-.wrapper {
+.flex-center {
   display: flex;
   justify-content: center;
+}
+
+table {
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid $black;
+  border-collapse: separate;
+  text-align: center;
+  font-size: $large-font-size;
+}
+
+th {
+  font-weight: normal;
+}
+
+td {
+  font-family: $arial;
+  font-weight: 300;
+  padding-top: 3px;
+}
+
+.wrapper {
+  @extend .flex-center;
 }
 
 .page {
@@ -80,15 +118,24 @@ a:hover {
   padding: 10px;
 }
 
-.header {
-  display: flex;
-  justify-content: center;
+.about a {
+  font-family: $arial;
+  font-size: $smaller-font-size;
+  text-decoration: underline;
 }
 
-.content {
+.about a:hover {
+  color: $black;
+}
+
+.about .header {
+  @extend .flex-center;
+}
+
+.about .content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   margin-bottom: 10px;
 }
 
@@ -106,17 +153,16 @@ a:hover {
 
 .production {
   width: $wide-section-width;
-  display: flex;
+  @extend .flex-center;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
 .saffron {
-    display: flex;
-    justify-content: end;
-    align-items: end;
-    flex-grow: 1;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  flex-grow: 1;
 }
 
 #saffron-img {
@@ -124,4 +170,37 @@ a:hover {
   background-image: url("./assets/safran.png");
   width: 153px;
   height: 86px;
+}
+
+.production {
+  padding: 20px;
+}
+
+.production .header {
+  margin-bottom: 10px;
+}
+
+.production .header p {
+  font-size: $large-font-size;
+}
+
+.production .content {
+  width: 100%;
+  @extend .flex-center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.production .content p {
+  font-family: $arial;
+}
+
+.production .content a {
+  color: $light-gold;
+  font-family: $arial;
+}
+
+.production .content a:hover {
+  color: $black;
 }
