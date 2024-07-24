@@ -7,6 +7,7 @@ $arial: Arial, Helvetica, sans-serif;
 
 $h1-font-size: 24px;
 
+$larger-font-size: 18px;
 $large-font-size: 16px;
 $small-font-size: 14px;
 $smaller-font-size: 13px;
@@ -20,7 +21,8 @@ $section-height: 400px;
 
 $white: #ffffff;
 $black: #000000;
-$light-gold: #cdad00;
+$gold3: #cdad00;
+$gold4: #8b7500;
 
 * {
   font-family: $times-new-roman;
@@ -29,7 +31,7 @@ $light-gold: #cdad00;
 
 h1 {
   font-size: $h1-font-size;
-  letter-spacing: 1px;
+  font-weight: bold;
   color: $white;
   margin: 10px 0px 20px 0px;
 }
@@ -39,20 +41,14 @@ p {
   text-align: justify;
 }
 
-ul {
-  font-size: $large-font-size;
-  font-family: $arial;
-  font-weight: 500;
-}
-
-li::marker {
-  font-size: 20px;
-}
-
 a {
   font-size: $small-font-size;
   color: $white;
   text-align: center;
+}
+
+a:hover {
+  color: $black;
 }
 
 .flex-center {
@@ -67,7 +63,7 @@ table {
 table,
 th,
 td {
-  border: 1px solid $black;
+  border: 2px solid $black;
   border-collapse: separate;
   text-align: center;
   font-size: $large-font-size;
@@ -124,8 +120,8 @@ td {
   text-decoration: underline;
 }
 
-.about a:hover {
-  color: $black;
+.about a:visited {
+  color: $gold4;
 }
 
 .about .header {
@@ -136,18 +132,27 @@ td {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-bottom: 10px;
 }
 
 .list {
-  padding-inline-start: 30px;
+  font-size: $large-font-size;
+  font-family: $arial;
+  padding-inline-start: 50px;
   list-style-type: square;
-  list-style-position: inside;
+  list-style-position: initial;
+
+  ::marker {
+    font-size: 20px;
+  }
 
   .sublist {
     padding-inline-start: 40px;
     list-style-type: circle;
     list-style-position: inherit;
+
+    li {
+      line-height: 15px;
+    }
   }
 }
 
@@ -156,6 +161,7 @@ td {
   @extend .flex-center;
   flex-direction: column;
   align-items: center;
+  padding: 20px 20px 30px 20px;
 }
 
 .saffron {
@@ -172,16 +178,12 @@ td {
   height: 86px;
 }
 
-.production {
-  padding: 20px;
-}
-
 .production .header {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .production .header p {
-  font-size: $large-font-size;
+  font-size: $larger-font-size;
 }
 
 .production .content {
@@ -197,10 +199,10 @@ td {
 }
 
 .production .content a {
-  color: $light-gold;
   font-family: $arial;
+  text-decoration: underline;
 }
 
-.production .content a:hover {
-  color: $black;
+a:visited {
+  color: $gold3;
 }
