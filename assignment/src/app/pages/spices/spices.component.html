@@ -12,17 +12,16 @@
           Danas su u upotrebi mogobrojni začini, a samo neki od njih su:
         </p>
         <ul class="list">
-          <li>
-            biber
-            <ul class="sublist">
-              <li>beli</li>
-              <li>crni</li>
-              <li>zeleni</li>
-            </ul>
-          </li>
-          <li>šafran</li>
-          <li>kurkuma</li>
-          <li>kardamon</li>
+          <span *ngFor="let spice of spices">
+            <ng-content *ngIf="isArray(spice); else listItem">
+              <ul class="sublist">
+                <li *ngFor="let spiceType of spice">{{ spiceType }}</li>
+              </ul>
+            </ng-content>
+            <ng-template #listItem>
+              <li>{{ spice }}</li>
+            </ng-template>
+          </span>
         </ul>
         <p>
           Prvi začini kojima se trgovalo su <i><b>biber</b></i> i
@@ -46,19 +45,9 @@
         </div>
         <div class="content">
           <table>
-            <tr>
-              <th>Indija</th>
-              <th>Bangladeš</th>
-              <th>Turska</th>
-              <th>Kina</th>
-              <th>Pakistan</th>
-            </tr>
-            <tr>
-              <td>70%</td>
-              <td>9%</td>
-              <td>5.7%</td>
-              <td>5.5%</td>
-              <td>3%</td>
+            <th *ngFor="let header of production.header">{{ header }}</th>
+            <tr *ngFor="let row of production.rows">
+              <td *ngFor="let data of row">{{ data }}</td>
             </tr>
           </table>
           <p>

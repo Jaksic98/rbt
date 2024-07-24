@@ -70,6 +70,7 @@ td {
 }
 
 th {
+  font-size: $larger-font-size;
   font-weight: normal;
 }
 
@@ -77,6 +78,10 @@ td {
   font-family: $arial;
   font-weight: 300;
   padding-top: 3px;
+}
+
+td::after {
+  content: "%";
 }
 
 .wrapper {
