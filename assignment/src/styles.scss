@@ -47,10 +47,6 @@ a {
   text-align: center;
 }
 
-a:hover {
-  color: $black;
-}
-
 .flex-center {
   display: flex;
   justify-content: center;
@@ -119,13 +115,13 @@ td::after {
   padding: 10px;
 }
 
-.about a {
+.about .content a {
   font-family: $arial;
   font-size: $smaller-font-size;
   text-decoration: underline;
 }
 
-.about a:visited {
+.about .content a:visited {
   color: $gold4;
 }
 
@@ -208,6 +204,11 @@ td::after {
   text-decoration: underline;
 }
 
-a:visited {
+.production .content a:visited {
   color: $gold3;
+}
+
+.about .content a:hover,
+.production .content a:hover {
+  color: $black;
 }

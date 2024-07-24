@@ -28,7 +28,6 @@ export class SpicesComponent {
   };
 
   isArray(spice: string | string[]): boolean {
-    console.log(Array.isArray(spice));
     return Array.isArray(spice);
   }
 }
