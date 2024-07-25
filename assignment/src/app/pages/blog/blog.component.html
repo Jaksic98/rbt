@@ -1,7 +1,12 @@
-<div class="p-10 flex flex-col">
-  <div>filter</div>
+<div class="p-10 flex flex-row gap-10">
+  <div class="w-1/5 flex justify-center gap-10">
+    <app-filter
+      class="w-full"
+      (categorySelectedEvent)="categoryChange($event)"
+    ></app-filter>
+  </div>
   <div
-    class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"
+    class="w-4/5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"
   >
     <div *ngFor="let movie of movies" class="grid">
       <app-card [movie]="movie" class="flex justify-center"></app-card>

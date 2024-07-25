@@ -1,0 +1,29 @@
+<form
+  [formGroup]="filterForm"
+  class="items-center p-3 w-4/5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-col dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+>
+  <ul>
+    <li *ngFor="let category of categories" class="w-full">
+      <div class="flex items-center ps-3">
+        <input
+          id="{{ category?.id }}"
+          formControlName="category"
+          type="radio"
+          value="{{ category?.id }}"
+          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+        />
+        <label
+          for="{{ category?.id }}"
+          class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >{{ category?.name }}
+        </label>
+      </div>
+    </li>
+  </ul>
+  <div
+    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    (click)="onCategoryChange(null)"
+  >
+    Clear
+  </div>
+</form>
