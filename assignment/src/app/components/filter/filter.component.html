@@ -1,7 +1,8 @@
 <form
   [formGroup]="filterForm"
-  class="items-center p-3 w-4/5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-col dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+  class="items-center w-fit h-fit p-3 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-col dark:bg-gray-700 dark:border-gray-600 dark:text-white"
 >
+  <h2>Categories</h2>
   <ul>
     <li *ngFor="let category of categories" class="w-full">
       <div class="flex items-center ps-3">
@@ -21,7 +22,7 @@
     </li>
   </ul>
   <div
-    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    class="flex justify-center w-full items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
     (click)="onCategoryChange(null)"
   >
     Clear
