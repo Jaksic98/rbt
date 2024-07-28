@@ -82,12 +82,16 @@ td::after {
 
 .wrapper {
   @extend .flex-center;
+  flex-direction: column;
+}
+
+app-spices {
+  @extend .flex-center;
 }
 
 .page {
   width: $page-width;
   height: $page-height;
-  display: flex;
   flex-direction: column;
   gap: 30px;
 }

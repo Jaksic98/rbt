@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 import { BlogService } from '../../services/blog.service';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -20,17 +27,18 @@ export class FilterComponent {
   categories: Category[] = [];
 
   @Output() categorySelectedEvent = new EventEmitter<number | null>();
+  @ViewChildren('radioInput') radios!: QueryList<ElementRef>;
 
   constructor(
     private blogService: BlogService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
   ) {
     this.filterForm = this.formBuilder.group({
       category: [''],
     });
 
     this.filterForm.get('category')!.valueChanges.subscribe((value) => {
-      this.onCategoryChange(value);
+      this.categorySelectedEvent.emit(value);
     });
   }
 
@@ -40,7 +48,7 @@ export class FilterComponent {
     });
   }
 
-  onCategoryChange($event: number | null) {
-    this.categorySelectedEvent.emit($event);
+  clearRadios() {
+    this.filterForm.get('category')?.reset();
   }
 }
