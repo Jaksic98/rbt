@@ -24,9 +24,13 @@
       </div>
     }
     @if (comments) {
-      <div>
-        <hr />
-        <p class="font-normal text-gray-700 dark:text-gray-400">Comments</p>
+      <div class="flex w-full flex-col rounded-2xl xl:w-10/12">
+        <p class="mx-3 mt-3 font-normal text-gray-700 dark:text-gray-400">
+          Comments
+        </p>
+        <div *ngFor="let comment of comments">
+          <app-comment [comment]="comment"></app-comment>
+        </div>
       </div>
     }
   </div>

@@ -1,0 +1,19 @@
+<div class="border rounded-md p-3 ml-3 my-3">
+  <div class="flex gap-3 items-center">
+    <img
+      src="https://avatars.githubusercontent.com/u/22263436?v=4"
+      class="object-cover w-8 h-8 rounded-full border-2"
+    />
+
+    <h3 class="text-gray-400 font-bold">
+      {{ comment.username ? comment.username : "Anonymous" }}
+    </h3>
+    <p class="text-gray-700 dark:text-gray-400">
+      {{ comment.createdAt | date }}
+    </p>
+  </div>
+
+  <p class="text-gray-700 dark:text-gray-400 mt-2">
+    {{ comment.comment }}
+  </p>
+</div>

@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { BlogService } from '../../services/blog.service';
 import { Movie, Comment } from '../../models/models';
 import { ActivatedRoute } from '@angular/router';
+import { CommentComponent } from '../../components/comment/comment.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-movie',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, CommentComponent],
   templateUrl: './movie.component.html',
   styleUrl: './movie.component.scss',
 })
