@@ -1,13 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-export interface Movie {
-  id: number;
-  categoryId: number;
-  imdbId: string;
-  name: string;
-  description: string;
-  imageUrl: string;
-}
+import { Movie } from '../../models/models';
 
 @Component({
   selector: 'app-card',

@@ -21,7 +21,11 @@ export class BlogService {
     return this.httpClient.get(this.moviesUrl);
   }
 
+  getMovie(id: number): Observable<any> {
+    return this.httpClient.get(this.moviesUrl + '/' + id);
+  }
+
   getComments(id: number): Observable<any> {
-    return this.httpClient.get(this.moviesUrl + id + '/comments');
+    return this.httpClient.get(this.moviesUrl + '/' + id + '/comments');
   }
 }

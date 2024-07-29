@@ -1,1 +1,33 @@
-<p>movie works!</p>
+<div class="my-10 flex w-full justify-center">
+  <div
+    class="flex p-10 w-11/12 flex-col items-center justify-center lg:w-4/5 xl:w-2/3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+  >
+    @if (movie) {
+      <div
+        class="flex w-full flex-col items-center justify-center rounded-2xl xl:w-10/12"
+      >
+        <div class="flex w-full flex-col items-center justify-center">
+          <img src="{{ movie.imageUrl }}" alt="{{ movie.name }}" />
+          <div class="flex items-center justify-center p-2">
+            <h1 class="text-center text-3xl font-bold lg:text-5xl">
+              {{ movie.name }}
+            </h1>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="w-4/5">
+            <p class="font-normal text-gray-700 dark:text-gray-400">
+              {{ movie.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+    }
+    @if (comments) {
+      <div>
+        <hr />
+        <p class="font-normal text-gray-700 dark:text-gray-400">Comments</p>
+      </div>
+    }
+  </div>
+</div>
