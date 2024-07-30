@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Comment } from '../models/models';
 
 @Injectable({
   providedIn: 'root',
@@ -27,5 +28,12 @@ export class BlogService {
 
   getComments(id: number): Observable<any> {
     return this.httpClient.get(this.moviesUrl + '/' + id + '/comments');
+  }
+
+  postComment(comment: Comment): Observable<any> {
+    return this.httpClient.post(
+      this.moviesUrl + '/' + comment.movieId + '/comments',
+      comment,
+    );
   }
 }

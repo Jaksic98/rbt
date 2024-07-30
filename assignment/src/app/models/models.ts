@@ -8,13 +8,13 @@ export interface Movie {
 }
 
 export interface Comment {
-  id: number;
-  movieId: number;
-  movieImdbId: string;
-  comment: string;
-  createdAt: string;
-  text: string;
-  userId: number;
-  username: string;
-  isAnon: boolean;
+  id?: number;
+  movieId?: number;
+  movieImdbId?: string;
+  comment?: string;
+  createdAt?: string;
+  text?: string;
+  userId?: number;
+  username?: string;
+  isAnon?: boolean;
 }
