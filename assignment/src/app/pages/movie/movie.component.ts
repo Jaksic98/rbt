@@ -55,21 +55,14 @@ export class MovieComponent {
   submitComment(): void {
     this.commentFormSubmitted = true;
     if (this.commentForm.valid) {
-      let comment: Comment = {
-        movieId: this.id,
-        // movieImdbId: this.movie.imdbId,
-        comment: this.commentForm.controls['comment'].getRawValue(),
-        // createdAt: this.datePipe.transform(
-        //   Date.now(),
-        //   'yyyy-MM-ddTHH:mm:ss.SSSZ',
-        // )!.toString(),
-        // text: this.commentForm.controls['comment'].getRawValue(),
-        username: this.commentForm.controls['username'].getRawValue(),
-        // isAnon: this.commentForm.controls['username'].getRawValue() === '',
-      };
-      this.blogService.postComment(comment).subscribe((comment: any) => {
-        console.log(comment);
-      });
+      this.blogService
+        .postComment(
+          this.id,
+          this.commentForm.controls['comment'].getRawValue(),
+        )
+        .subscribe((comment: any) => {
+          console.log(comment);
+        });
       this.commentForm.reset();
       this.commentFormSubmitted = false;
     }

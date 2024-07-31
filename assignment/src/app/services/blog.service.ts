@@ -30,10 +30,9 @@ export class BlogService {
     return this.httpClient.get(this.moviesUrl + '/' + id + '/comments');
   }
 
-  postComment(comment: Comment): Observable<any> {
-    return this.httpClient.post(
-      this.moviesUrl + '/' + comment.movieId + '/comments',
-      comment,
-    );
+  postComment(id: number, comment: string): Observable<any> {
+    return this.httpClient.post(this.moviesUrl + '/' + id + '/comments', {
+      comment: comment,
+    });
   }
 }
